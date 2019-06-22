@@ -89,6 +89,16 @@ class AnimalData: UIViewController {
     
     @IBAction func tapped(_ sender: Any) {
         
+        
+        if num < 4 {
+            imageView.image = UIImage(named: "\(num)")
+            num += 1
+            
+        } else {
+            imageView.image = UIImage(named: "4")
+            num = 1
+        
+        }
     }
         
         
