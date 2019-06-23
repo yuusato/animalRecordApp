@@ -18,7 +18,8 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     UserDefaults.standard.removeObject(forKey:"NewFile" )
+        UserDefaults.standard.removeObject(forKey:"list1" )
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,6 +30,7 @@ class TableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         if UserDefaults.standard.object(forKey: "list") != nil {
             list = UserDefaults.standard.object(forKey: "list") as! [String]
             tableView.reloadData()
@@ -36,6 +38,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == UITableViewCell.EditingStyle.delete {
             list.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
